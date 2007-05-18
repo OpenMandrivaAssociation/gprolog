@@ -1,6 +1,6 @@
 %define	name	gprolog
-%define	version	1.2.19
-%define	release	%mkrel 4
+%define	version	1.3.0
+%define	release	%mkrel 1
 %define	Summary	GNU Prolog is a free implementation of Prolog
 
 Name:		%{name}
@@ -11,10 +11,8 @@ Release:	%{release}
 URL:		http://gnu-prolog.inria.fr/
 # ftp://ftp.inria.fr/INRIA/Projects/contraintes/gnu-prolog/%{name}-%{version}.tar.bz2
 Source0:	ftp://ftp.gnu.org/gnu/gprolog/%{name}-%{version}.tar.bz2
-Patch0:		gprolog-1.2.19-gcc4.patch.bz2
-Patch1:		gprolog-1.2.19-bootstrap.patch.bz2
+Patch1:		gprolog-1.3.0-bootstrap.patch
 Patch2:		gprolog-1.2.19-noexecstack.patch.bz2
-Patch3:		gprolog-1.2.19-test.patch.bz2
 Group:		Development/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86} x86_64 amd64 ppc
@@ -30,10 +28,8 @@ close to the ISO standard (http://www.logic-programming.org/prolog_std.html).
 
 %prep
 %setup -q
-%patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 (cd src && autoconf)
 
 %build
@@ -93,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc Examples* doc/Html
+%doc Examples* doc/html_node
 %{_bindir}/*
 %{_libdir}/%{name}*
 %{_datadir}/applications/*
