@@ -14,7 +14,6 @@ Source0:	ftp://ftp.gnu.org/gnu/gprolog/%{name}-%{version}.tar.bz2
 Patch1:		gprolog-1.3.0-bootstrap.patch
 Patch2:		gprolog-1.2.19-noexecstack.patch.bz2
 Group:		Development/Other
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86} x86_64 amd64 ppc
 License:	GPL
 
