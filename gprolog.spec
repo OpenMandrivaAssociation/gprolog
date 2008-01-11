@@ -53,17 +53,6 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 
 (cd $RPM_BUILD_ROOT%{_bindir} ; ln -sf ../%{_lib}/%{name}-%{version}/bin/* .)
 
-install -d $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): \
-needs="text" \
-section="More Applications/Development/Interpreters" \
-title="GNU Prolog" \
-longtitle="%{Summary}" \
-command="%{name}" \
-icon="interpreters_section.png" \
-xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -92,4 +81,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/*
 %{_libdir}/%{name}*
 %{_datadir}/applications/*
-%{_menudir}/*
