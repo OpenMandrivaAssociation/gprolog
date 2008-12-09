@@ -1,6 +1,6 @@
 %define	name	gprolog
 %define	version	1.3.0
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 %define	Summary	GNU Prolog is a free implementation of Prolog
 
 Name:		%{name}
@@ -39,7 +39,8 @@ cd src
 		--with-doc-dir=%{_datadir}/%{name}-%{version} \
 		--with-html-dir=%{_datadir}/%{name}-%{version}/html \
 		--with-examples-dir=%{_datadir}/%{name}-%{version}/examples
-%make
+# parallel build is not safe - AdamW 2008/12
+make
 
 %check
 # all tests pass on x86-64
