@@ -13,6 +13,7 @@ URL:		http://gnu-prolog.inria.fr/
 Source0:	ftp://ftp.gnu.org/gnu/gprolog/%{name}-%{version}.tar.bz2
 Patch1:		gprolog-1.3.0-bootstrap.patch
 Patch2:		gprolog-1.3.0-noexecstack.patch
+Patch3:		gprolog-1.3.0-fix-str-fmt.patch
 Group:		Development/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86} x86_64 amd64 ppc
@@ -30,11 +31,17 @@ close to the ISO standard (http://www.logic-programming.org/prolog_std.html).
 %setup -q
 %patch1 -p1
 %patch2 -p1 -b .noexecstack
+%patch3 -p0 -b .str
 (cd src && autoconf)
 
 %build
 cd src
-%configure2_5x	-with-c-flags="%{optflags} -fno-unit-at-a-time" \
+CFLG="$(echo %{optflags} | sed -s "s/\-O2/-O1/g" \
+     		    | sed -e "s/\-fomit-frame-pointer//")"
+
+# Based on a gentoo ebuild (??)
+CFLG="$CFLG -funsigned-char"
+%configure2_5x	-with-c-flags="$CFLG -fno-unit-at-a-time" \
 		--with-install-dir=%{_prefix} \
 		--with-doc-dir=%{_datadir}/%{name}-%{version} \
 		--with-html-dir=%{_datadir}/%{name}-%{version}/html \
@@ -43,8 +50,11 @@ cd src
 make
 
 %check
-# all tests pass on x86-64
-make check || echo "#### FIXME ####"
+cd src
+#
+export PATH=$RPM_BUILD_ROOT%{_bindir}:$PATH
+#
+make check
 
 %install
 rm -rf $RPM_BUILD_ROOT
