@@ -12,7 +12,7 @@ URL:		http://gnu-prolog.inria.fr/
 # ftp://ftp.inria.fr/INRIA/Projects/contraintes/gnu-prolog/%{name}-%{version}.tar.bz2
 Source0:	ftp://ftp.gnu.org/gnu/gprolog/%{name}-%{version}.tar.bz2
 Patch1:		gprolog-1.3.0-bootstrap.patch
-Patch2:		gprolog-1.2.19-noexecstack.patch.bz2
+Patch2:		gprolog-1.2.19-noexecstack.patch
 Group:		Development/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86} x86_64 amd64 ppc
