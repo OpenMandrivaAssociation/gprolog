@@ -1,6 +1,6 @@
 %define	name	gprolog
 %define	version	1.3.0
-%define	release	%mkrel 3
+%define	release	%mkrel 4
 %define	Summary	GNU Prolog is a free implementation of Prolog
 
 Name:		%{name}
