@@ -11,6 +11,7 @@ Release:	%{release}
 URL:		http://gnu-prolog.inria.fr/
 # ftp://ftp.inria.fr/INRIA/Projects/contraintes/gnu-prolog/%{name}-%{version}.tar.bz2
 Source0:	ftp://ftp.gnu.org/gnu/gprolog/%{name}-%{version}.tar.bz2
+Patch0:		gprolog-1.3.0-test.patch
 Patch1:		gprolog-1.3.0-bootstrap.patch
 Patch2:		gprolog-1.3.0-noexecstack.patch
 Patch3:		gprolog-1.3.0-fix-str-fmt.patch
@@ -29,6 +30,7 @@ close to the ISO standard (http://www.logic-programming.org/prolog_std.html).
 
 %prep
 %setup -q
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1 -b .noexecstack
 %patch3 -p0 -b .str
