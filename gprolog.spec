@@ -9,6 +9,7 @@ Version:	%{version}
 Release:	%{release}
 URL:		http://gnu-prolog.inria.fr/
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
+#Patch0 was sent upstream (Kharec)
 Patch0:		gprolog-1.3.1-fix-str-fmt.patch
 Patch2:		gprolog-1.3.0-noexecstack.patch
 Group:		Development/Other
