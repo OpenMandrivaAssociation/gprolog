@@ -1,24 +1,20 @@
 %define	name	gprolog
-%define	version	1.3.0
-%define	release	%mkrel 4
+%define	version	1.3.1
+%define	release	%mkrel 1
 %define	Summary	GNU Prolog is a free implementation of Prolog
 
 Name:		%{name}
 Summary:	%{Summary}
 Version:	%{version}
 Release:	%{release}
-# http://www.gnu.org/software/prolog
 URL:		http://gnu-prolog.inria.fr/
-# ftp://ftp.inria.fr/INRIA/Projects/contraintes/gnu-prolog/%{name}-%{version}.tar.bz2
-Source0:	ftp://ftp.gnu.org/gnu/gprolog/%{name}-%{version}.tar.bz2
-Patch0:		gprolog-1.3.0-test.patch
-Patch1:		gprolog-1.3.0-bootstrap.patch
+Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
+Patch0:		gprolog-1.3.1-fix-str-fmt.patch
 Patch2:		gprolog-1.3.0-noexecstack.patch
-Patch3:		gprolog-1.3.0-fix-str-fmt.patch
 Group:		Development/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86} x86_64 amd64 ppc
-License:	GPL
+License:	GPLv2
 
 %description
 GNU Prolog is a native Prolog compiler with constraint solving over finite
@@ -30,10 +26,8 @@ close to the ISO standard (http://www.logic-programming.org/prolog_std.html).
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch0 -p0
 %patch2 -p1 -b .noexecstack
-%patch3 -p0 -b .str
 (cd src && autoconf)
 
 %build
