@@ -66,7 +66,9 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=GNU Prolog
+Name[ru]=Язык логического программирования Пролог
 Comment=%{Summary}
+Comment[ru]=Компилятор языка программирования Пролог
 Exec=%{name}
 Icon=interpreters_section
 Terminal=true
