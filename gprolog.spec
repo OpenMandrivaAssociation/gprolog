@@ -1,5 +1,5 @@
 %define	name	gprolog
-%define	version	1.3.1
+%define	version	1.4.0
 %define	release	%mkrel 3
 %define	Summary	GNU Prolog is a free implementation of Prolog
 
@@ -27,8 +27,8 @@ close to the ISO standard (http://www.logic-programming.org/prolog_std.html).
 
 %prep
 %setup -q
-%patch0 -p0
-%patch2 -p1 -b .noexecstack
+#%patch0 -p0
+#%patch2 -p1 -b .noexecstack
 (cd src && autoconf)
 
 %build
@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc Examples* doc/html_node
+%doc examples/Examples* doc/html_node
 %{_bindir}/*
 %{_libdir}/%{name}*
 %{_datadir}/applications/*
