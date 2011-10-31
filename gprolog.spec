@@ -1,17 +1,15 @@
 %define	name	gprolog
 %define	version	1.4.0
-%define	release	%mkrel 3
+%define	release	%mkrel 1
 %define	Summary	GNU Prolog is a free implementation of Prolog
 
 Name:		%{name}
 Summary:	%{Summary}
 Version:	%{version}
 Release:	%{release}
-URL:		http://gnu-prolog.inria.fr/
-Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
-#Patch0 was sent upstream (Kharec)
-Patch0:		gprolog-1.3.1-fix-str-fmt.patch
-Patch2:		gprolog-1.3.0-noexecstack.patch
+URL:		http://www.gprolog.org/
+Source0:	http://www.gprolog.org/%{name}-%{version}.tar.gz
+Patch1:		gprolog-1.4.0-test.patch
 Group:		Development/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86} x86_64 amd64 ppc
@@ -27,9 +25,7 @@ close to the ISO standard (http://www.logic-programming.org/prolog_std.html).
 
 %prep
 %setup -q
-#%patch0 -p0
-#%patch2 -p1 -b .noexecstack
-(cd src && autoconf)
+%patch1 -p1 -b .tst
 
 %build
 cd src
@@ -49,21 +45,21 @@ make
 %check
 cd src
 #
-export PATH=$RPM_BUILD_ROOT%{_bindir}:$PATH
+export PATH=%{buildroot}%{_bindir}:$PATH
 #
 make check
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
+install -d %{buildroot}%{_bindir}
 
-(cd src ; make install-system INSTALL_DIR=$RPM_BUILD_ROOT%{_libdir}/%{name}-%{version})
+(cd src ; make install-system INSTALL_DIR=%{buildroot}%{_libdir}/%{name}-%{version})
 
-(cd $RPM_BUILD_ROOT%{_bindir} ; ln -sf ../%{_lib}/%{name}-%{version}/bin/* .)
+(cd %{buildroot}%{_bindir} ; ln -sf ../%{_lib}/%{name}-%{version}/bin/* .)
 
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=GNU Prolog
 Name[ru]=Язык логического программирования Пролог
@@ -91,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc examples/Examples* doc/html_node
+%doc ChangeLog NEWS PROBLEMS README doc/html_node
 %{_bindir}/*
 %{_libdir}/%{name}*
 %{_datadir}/applications/*
