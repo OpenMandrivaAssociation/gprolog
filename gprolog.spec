@@ -50,7 +50,7 @@ export PATH=%{buildroot}%{_bindir}:$PATH
 make check
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 install -d %{buildroot}%{_bindir}
 
 (cd src ; make install-system INSTALL_DIR=%{buildroot}%{_libdir}/%{name}-%{version})
@@ -73,7 +73,7 @@ Categories=Development;X-MandrivaLinux-MoreApplications-Development-Interpreters
 EOF
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post 
