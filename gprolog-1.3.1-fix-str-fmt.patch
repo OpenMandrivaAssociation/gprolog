@@ -1,0 +1,15 @@
+Index: src/EnginePl/test_oc.c
+===================================================================
+--- src/EnginePl/test_oc.c
++++ src/EnginePl/test_oc.c	2010-03-05 20:32:43.000000000 +0100
+@@ -8,8 +8,8 @@
+ void
+ Pl_Fatal_Error(char *msg)
+ {
+-  fprintf(stderr, msg);
+-  fprintf(stderr, "\n");
++  fprintf(stderr, "%s", msg);
++  fprintf(stderr, "%s", "\n");
+   exit(1);
+ }
+ 
