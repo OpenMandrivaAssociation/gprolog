@@ -1,2 +1,4 @@
+removed_sources:
+  gprolog-1.4.0.tar.gz: 40d99cd3fcb8fa86103ad5692e2cd35b17a90706
 sources:
-  "gprolog-1.4.0.tar.gz": 40d99cd3fcb8fa86103ad5692e2cd35b17a90706
+  gprolog-1.4.4.tar.gz: 658b0efa5d916510dcddbbd980d90bc4d43a6e58
