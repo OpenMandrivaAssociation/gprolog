@@ -1,0 +1,14 @@
+diff -Naur gprolog-1.4.4.orig/src/EnginePl/obj_chain.h gprolog-1.4.4/src/EnginePl/obj_chain.h
+--- gprolog-1.4.4.orig/src/EnginePl/obj_chain.h	2014-05-13 15:16:29.761037400 +0400
++++ gprolog-1.4.4/src/EnginePl/obj_chain.h	2014-05-13 15:18:32.056580535 +0400
+@@ -94,10 +94,7 @@
+ #endif /* OBJ_INIT */
+ 
+ 
+-
+-#if (defined(_MSC_VER) || defined(M_darwin)) && !defined(OBJ_CHAIN_REVERSE_ORDER)
+ #define OBJ_CHAIN_REVERSE_ORDER
+-#endif
+ 
+ #if 0
+ #define OBJ_CHAIN_REVERSE_ORDER
