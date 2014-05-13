@@ -7,6 +7,7 @@ Version:	1.4.4
 Release:	1
 URL:		http://www.gprolog.org/
 Source0:	ftp://ftp.gnu.org:21/gnu/gprolog/%{name}-%{version}.tar.gz
+Source100:	%{name}.rpmlintrc
 Patch1:		gprolog-1.4.4-test.patch
 Group:		Development/Other
 ExclusiveArch:	%{ix86} x86_64 amd64 ppc
