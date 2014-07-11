@@ -4,7 +4,7 @@ Name:		gprolog
 Summary:	%{Summary}
 
 Version:	1.4.4
-Release:	2
+Release:	3
 URL:		http://www.gprolog.org/
 Source0:	ftp://ftp.gnu.org:21/gnu/gprolog/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
