@@ -4,7 +4,7 @@ Name:		gprolog
 Summary:	%{Summary}
 
 Version:	1.4.4
-Release:	4
+Release:	5
 URL:		http://www.gprolog.org/
 Source0:	ftp://ftp.gnu.org:21/gnu/gprolog/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
@@ -26,13 +26,18 @@ close to the ISO standard (http://www.logic-programming.org/prolog_std.html).
 %patch1 -p1 -b .tst
 
 %build
+
+# fails with clang
+export CC=gcc
+export CXX=g++
+
 cd src
 CFLG="$(echo %{optflags} | sed -s "s/\-O2/-O1/g" \
      		    | sed -e "s/\-fomit-frame-pointer//")"
 
 # Based on a gentoo ebuild (??)
 CFLG="$CFLG -funsigned-char"
-%configure2_5x	-with-c-flags="$CFLG -fno-unit-at-a-time" \
+%configure	-with-c-flags="$CFLG -fno-unit-at-a-time" \
 		--with-install-dir=%{_prefix} \
 		--with-doc-dir=%{_datadir}/%{name}-%{version} \
 		--with-html-dir=%{_datadir}/%{name}-%{version}/html \
@@ -69,17 +74,6 @@ Type=Application
 Categories=Development;X-MandrivaLinux-MoreApplications-Development-Interpreters;
 EOF
 
-%clean
-
-%if %mdkversion < 200900
-%post 
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
 
 %files
 %doc ChangeLog NEWS PROBLEMS README doc/html_node
