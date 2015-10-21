@@ -1,4 +1,6 @@
 %define	Summary	GNU Prolog is a free implementation of Prolog
+%define _disable_lto 1
+%define _disable_rebuild_configure 1
 
 Name:		gprolog
 Summary:	%{Summary}
