@@ -5,10 +5,10 @@
 Name:		gprolog
 Summary:	%{Summary}
 
-Version:	1.4.4
-Release:	8
+Version:	1.4.5
+Release:	1
 URL:		http://www.gprolog.org/
-Source0:	ftp://ftp.gnu.org:21/gnu/gprolog/%{name}-%{version}.tar.gz
+Source0:	http://gprolog.univ-paris1.fr/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 Patch1:		gprolog-1.4.4-test.patch
 Group:		Development/Other
@@ -82,6 +82,3 @@ EOF
 %{_bindir}/*
 %{_libdir}/%{name}*
 %{_datadir}/applications/*
-
-
-
