@@ -12,7 +12,7 @@ Source0:	http://gprolog.univ-paris1.fr/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 Patch1:		gprolog-1.4.4-test.patch
 Group:		Development/Other
-ExclusiveArch:	%{ix86} x86_64 amd64 ppc
+ExclusiveArch:	%{ix86} %{x86_64} amd64 ppc
 License:	GPLv2
 
 %description
