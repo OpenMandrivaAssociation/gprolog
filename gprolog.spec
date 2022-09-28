@@ -5,7 +5,7 @@
 Name:		gprolog
 Summary:	%{Summary}
 
-Version:	1.4.5
+Version:	1.5.0
 Release:	1
 URL:		http://www.gprolog.org/
 Source0:	http://gprolog.univ-paris1.fr/%{name}-%{version}.tar.gz
