@@ -7,7 +7,7 @@ Summary:	%{Summary}
 
 Version:	1.5.0
 Release:	2
-URL:		http://www.gprolog.org/
+URL:		https://www.gprolog.org/
 Source0:	http://gprolog.univ-paris1.fr/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 Patch1:		gprolog-1.4.4-test.patch
