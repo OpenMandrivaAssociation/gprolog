@@ -15,6 +15,11 @@ Group:		Development/Other
 ExclusiveArch:	%{ix86} %{x86_64} amd64 ppc
 License:	GPLv2
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 GNU Prolog is a native Prolog compiler with constraint solving over finite
 domains (FD) developed by Daniel Diaz. Latest information about GNU Prolog can
